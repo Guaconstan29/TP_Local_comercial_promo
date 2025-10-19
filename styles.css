@@ -1,0 +1,632 @@
+/* GENERALIDADES*/
+* {
+  margin: 0; /* Quita los márgenes por defecto */
+  padding: 0; /* Quita los espacios internos por defecto */
+  box-sizing: border-box; /* CON borde y padding */
+}
+
+body {
+  font-family: 'Times New Roman', serif; /* Fuente principal de la página */
+  background-color: #ebe4db; /* Color de fondo */
+  color: #ead9d0; /* Color de texto principal */
+  line-height: 1.6; /* Altura de línea para que el texto respire */
+}
+
+/* MENU PRINCIPAL */
+.top-bar {
+  background-color: #000; /* Fondo */
+  color: #fff; /* Texto  */
+  text-align: center; /* ALINEACION - PUEDE SER LEFT RIGHT END. */
+  font-size: 0.9rem; /* LETRA + CHICA */
+  padding: 0.4rem 0; /* ESPACIOS */
+}
+
+/* ENCABEZADO */
+.main-header {
+  display: flex; /* Organiza los elementos (AL LADO O AARRIBA) */
+  flex-direction: column; /* COLUMNA */
+  align-items: center; /* CENTRADO  */
+  padding: 1rem 2rem; 
+  border-bottom: 1px solid #fff; /* LINEA DE ABAJO  */
+  background-color: #000; /* Fondo */
+  gap: 1rem; /* ESP. E/ ELEMENTOS */
+}
+
+/* LOGO Y TITULO */
+.header-top {
+  display: flex;
+  align-items: center; /* CENTRA */
+  justify-content: center; 
+  position: relative; /* permite que el logo quede pegado a la izquierda mientras el título sigue centrado */
+  width: 100%;
+  height: 150px; /* ALTO HEADER */
+}
+
+/* LOGO PARA Q QUEDE A LA IZQ. */
+.logo {
+  position: absolute;
+  left: 0;
+  width: 120px; /* ANCHO */
+  height: 120px; /* ALTO */
+  margin-right: 2rem; /* SEPARACION CON TITULO */
+}
+
+.logo img {
+  width: 100%; 
+  height: 100%;
+  object-fit: cover; /* NO SE DEFORMA LA IMG */
+}
+
+/* TITULO (CENTRO) */
+.header-top h1 {
+  color: #fff; 
+  font-size: 1.8rem; 
+  text-align: center;
+  margin: 0; 
+}
+
+/* MENU CENTRADO */
+.main-nav {
+  margin-top: 0.7rem; /* SEPARACION CON EL TITULO */
+}
+
+.main-nav ul {
+  list-style: none; /* SIN PUNTOS*/
+  display: flex; /* ALINEA */
+  justify-content: center; 
+  gap: 40px; /* ESP. E/ C/ LINK */
+  padding: 0; 
+  flex-wrap: nowrap; /* QUEDAN HORIZ. */
+}
+
+.main-nav li {
+  display: inline-block; /* ELEMENTOS LINEA */
+  position: relative; /* SUBMENU!! */
+  margin: 0 20px; 
+}
+
+.main-nav a {
+  text-decoration: none; /* SIN SUBRAYADO (X DEFECTO) */
+  color: #ead9d0; 
+  font-weight: bold; /* LETRA NEGRITA */
+  font-size: 1.1rem;
+  border-bottom: 2px solid transparent; /* LINEA NO SE VE */
+  transition: color 0.3s ease; /* EFECTO COLOR SUACE */
+}
+/* EFECTO CUADNO PASO EL MOUSE  */
+.main-nav a:hover {
+  color: #b08b67; /* CCAMBIO DE COLOR  */
+  text-decoration: underline; /* Subrayado  */
+}
+
+/* SUBMENU DEPLE. */
+.submenu {
+  opacity: 0; /* QUE NO SE VE  */
+  visibility: hidden;
+  position: absolute; /* Relativo al padre */
+  top: 100%; /* POR DEBAJO DEL LINK */
+  left: 0;
+  display: flex;
+  flex-direction: column; /* COLUMNA */
+  gap: 0.1rem;
+  text-align: left;
+  background-color: #f7ede2; 
+  list-style: none; /* SIN VIÑETAS */
+  padding: 0.1rem 0;
+  margin: 0;
+  border-radius: 5px; /*BORDES */
+  min-width: 200px; /* Ancho mínimo */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* SOMBRA */
+  z-index: 10; /* Aparece encima de otros elementos PARA NO TAPAR */
+  transition: all 0.3s ease; /* APARECE SUAVE */
+}
+
+.submenu li a {
+  display: block; /* ANCHO */
+  padding: 0.8rem 1rem;
+  color: #4b3b2f;
+  text-decoration: none;
+  font-weight: normal;
+  transition: background 0.3s ease;
+}
+/* EFECTO CUADNO PASO EL MOUSE  */
+.submenu li a:hover {
+  background-color: #e7d8c9; 
+  color: #b08b67; 
+}
+
+.main-nav li:hover .submenu {
+  opacity: 1; /* HACE QUE SEA VISIBLE*/
+  visibility: visible;
+  transform: translateY(0); /* LO DEVUELVE */
+}
+
+/* IMG. PRINCIPAL */
+.hero {
+  gap: 20px;
+  height: 500px; /* ALTURA */
+  background-color: #e7d8c9; /* FONDO */
+  display: flex;
+  align-items: center; /* CENTRADO */
+  justify-content: center; 
+  position: relative;
+  text-align: center;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute; /* IMG. X ATRAS DE TEXTO */
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.hero-text {
+  position: relative; 
+  z-index: 2;
+  background: rgba(255,255,255,0.8); /* FONDO CON TRANSPARENCIA */
+  padding: 1rem 2rem;
+  border-radius: 10px;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  color: #4b3b2f;
+}
+
+.hero p {
+  color: #7a6651;
+  font-style: italic; /* CURSIVA */
+}
+
+/* -------SECCIONES----- */
+section {
+  padding-top: 3rem;
+  padding-bottom: 3rem; /* QUE NO SE PEGUE AL FOOTER */
+  text-align: center;
+}
+
+/* PROD. CAJA PRINCIPALES DEL INICIO*/
+.productos h2 {
+  color: #4b3b2f;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.cajas {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.caja {
+  background-color: #f7ede2;
+  width: 300px;
+  border-radius: 15px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease; /* EFECTO */
+}
+
+.caja:hover {
+  transform: scale(1.03); /* EFECTO AGRANDA */
+}
+
+.caja img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* AJUSTE IMG. */
+  border-radius: 10px;
+}
+
+.caja h3 {
+  color: #4b3b2f;
+  margin: 1rem 0 0.5rem;
+}
+
+.caja p {
+  font-size: 0.95rem;
+  color: #5f4c3b;
+}
+
+/* ------NOSOTROS------ */
+.nosotros {
+  background-color: #efe1d1;
+}
+
+.nosotros h2 {
+  color: #4b3b2f;
+  margin-bottom: 1rem;
+}
+
+.nosotros p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #5f4c3b;
+  font-size: 1rem;
+}
+
+.logo_bajo img {
+  object-fit: cover;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+}
+
+/*------ FOOTER----CONTACTO---- */
+footer {
+  background-color: #d8c3a5;
+  color: #fff;
+  text-align: left;
+  padding: 0.5rem 1rem 0.3rem; 
+}
+
+footer h3 {
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0.1rem 0;
+  font-size: 0.75rem;
+}
+
+.redes {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: right;
+  font-size: 0.75rem;
+}
+
+.redes a:hover {
+  text-decoration: underline;
+}
+
+.copy {
+  font-size: 0.65rem;
+  margin-top: 0.3rem;
+  color: #f5ebe0;
+  text-align: center;
+}
+
+/* ------PAGINA RESPONSIVE------ */
+@media (max-width: 900px) {
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  nav ul {
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .main-header h1 {
+    margin: 0.5rem 0;
+  }
+
+  .cajas {
+    flex-direction: column; /* IMG. APILADAS */
+    align-items: center;
+  }
+
+  .caja {
+    width: 60%; /* +ANCHO */
+  }
+
+  form, .resultado {
+    max-width: 90%;
+    margin: 1rem auto;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}
+
+/* ---- RESPONSIVE PARA CELULARES ---- */
+@media (max-width: 600px) {
+  .header-top {
+    height: 100px; 
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+    left: 10px; 
+  }
+
+  .header-top h1 {
+    font-size: 1.3rem; /* TITULO MAS CHICO */
+    max-width: 70%; /* PARA QUE NO SE TAPE CON EL LOGO */
+    line-height: 1.2;
+  }
+
+  .main-nav ul {
+    gap: 15px; 
+    flex-wrap: wrap; 
+  }
+
+  .main-nav a {
+    font-size: 0.9rem; /* FUENTE MAS CHICA */
+  }
+
+  /* Formulario y resultados  */
+  form, .resultado {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  label {
+    font-size: 0.9rem;
+  }
+
+  select,
+  input[type="number"],
+  button {
+    font-size: 0.9rem;
+  }
+
+  button {
+    padding: 0.7rem;
+  }
+}
+
+
+/* ------DENTRO DE SECC. PRODUCTOS (INF_SUP)--- */
+.productos_sup_inf h2 {
+  color: #4b3b2f;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.cajas_sup_inf {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.caja_sup_inf {
+  background-color: #f7ede2;
+  width: 300px;
+  border-radius: 15px;
+  padding: 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.caja_sup_inf img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.caja_sup_inf h3 {
+  color: #4b3b2f;
+  margin: 1rem 0 0.5rem;
+}
+
+.caja_sup_inf p {
+  display: inline-block;
+  background-color: #e9e9cf;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.caja_sup_inf p::after {
+  content: attr(data-precio); /* PRECIO */
+}
+
+.caja_sup_inf p:hover::after {
+  content: "Agregar al carrito"; /* EFECTO CUANDO PASO EL MOUSE */
+  background-color: #afaf91;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.caja_sup_inf p:hover {
+  background-color: transparent;
+  transform: scale(1.05);
+}
+
+/* --- PROMOCIONES/SALE --- */
+.productos_sale h2 {
+  color: #4b3b2f;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.cajas_sale {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.caja_sale {
+  background-color: #f7ede2;
+  width: 300px;
+  border-radius: 15px;
+  padding: 0;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.caja_sale img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.caja_sale h3 {
+  color: #4b3b2f;
+  margin: 1rem 0 0.5rem;
+}
+
+.caja_sale p {
+  display: inline-block;
+  background-color: #e9e9cf;
+  color: #333;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.caja_sale p::after {
+  content: attr(data-precio); /* PRECIO */
+}
+
+.caja_sale p:hover::after {
+  content: "Agregar al carrito"; /* EFECTOO */
+  background-color: #afaf91;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.caja_sale p:hover {
+  background-color: transparent;
+  transform: scale(1.05);
+}
+
+/* BANDA DE OFERTA */
+.caja_sale.oferta::before { /*::before crea un elemento EXTRA antes del contenido real de la caja sin MODIFICAR el HTML.*/
+  content: "OFERTA"; /*EL CONTENIDO que va a mostrar este pseudo-elemento*/
+  position: absolute;
+  top: 15px;
+  left: -40px; /*DIAGONAL.*/
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 50px;
+  text-align: center;
+  transform: rotate(-45deg); /*Rota la banda en diagonal 45° hacia la izquierda*/
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  letter-spacing: 1px;
+  z-index: 2; /*banda aparezca encima de la imagen*/
+}
+
+/*------UBICACION------ */
+.mapa-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.mapa-container iframe {
+  max-width: 100%;
+  height: 450px;
+  border-radius: 12px;
+}
+
+.ubicacion h2 {
+  color: #4b3b2f;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.ubicacion p {
+  color: #4b3b2f;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+/* --- FORMULARIO PROMOCIONES --- */
+.promociones form {
+  background-color: #f7ede2;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 320px;
+  margin: 1.5rem auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.promociones select,
+.promociones input {
+  padding: 0.4rem;
+  border: 1px solid #d8c3a5;
+  border-radius: 8px;
+}
+
+.promociones button {
+  background-color: #b08b67;
+  color: #fff;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.promociones button:hover {
+  background-color: #4b3b2f;
+}
+
+.resultado p {
+  color: #4b3b2f;
+  font-weight: bold;
+  margin-top: 0.3rem;
+}
+
+/* --- MINI GALERÍA PROMOS --- */
+.galeria-promos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.galeria-promos div {
+  background-color: #f7ede2;
+  border-radius: 12px;
+  width: 130px;
+  text-align: center;
+  padding: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.galeria-promos div:hover {
+  transform: scale(1.05);
+}
+
+.galeria-promos img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.galeria-promos p {
+  color: #4b3b2f;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Promociones - Frezia Amapola</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="top-bar">
+    <p>📦 Envíos a todo el país • 3 cuotas sin interés</p>
+  </div>
+  <header class="main-header">
+    <div class="logo">
+      <img src="logo.png" alt="Logo de Frezia Amapola" />
+    </div>
+    <h1>Promociones</h1>
+
+    <nav>
+      <ul class="main-nav">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="parte_superior.html">Parte superior</a></li>
+        <li><a href="parte_inferior.html">Parte inferior</a></li>
+        <li><a href="abrigo.html">Abrigos</a></li>
+        <li><a href="sale.html" class="activo">Promociones</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="promociones">
+    <section class="productos_sale">
+      <h2>Calculá tu promoción</h2>
+      <p style="color:#4b3b2f;">
+        Seleccioná tus productos y descubrí cuánto ahorrás con nuestras ofertas ✨
+      </p>
+
+      <div class="galeria-promos">
+        <div>
+          <img src="s_img1.png" alt="Mini ecocuero">
+          <p>Mini ecocuero</p>
+        </div>
+        <div>
+          <img src="s_img2.png" alt="Reme bordada">
+          <p>Reme bordada</p>
+        </div>
+        <div>
+          <img src="s_img3.png" alt="Campera de jean">
+          <p>Campera de jean</p>
+        </div>
+        <div>
+          <img src="s_img4.png" alt="Pantalón sastrero">
+          <p>Pantalón sastrero</p>
+        </div>
+      </div>
+
+     <!-- FFORM. PARA ELEGIR PROD CANT Y PROM -->
+<form id="formPromos" style="margin-top:1.5rem;">
+  <!-- FORM: formulatio para ingresar datos. --->
+    
+
+  <!-- LISTA DESPLEGABLE DE PRODUCTOS -->
+  <label for="producto" style="color:#4b3b2f; font-weight:bold;">Producto:</label>
+      <!-- LABEL: descripcion del campo
+       for="producto": lo asocio al id de abajo.--->      
+
+  <select id="producto" required>
+    <!-- SELECT: crea una lista desplegable
+         id="producto": lo asocio a mi JS
+         required: opcion obligatoria -->
+
+    <option value="20000">Mini ecocuero ($20.000)</option>
+    <option value="15000">Reme bordada ($15.000)</option>
+    <option value="25000">Campera de cuero ($65.000)</option>
+    <option value="30000">Pantalón sastrero ($30.000)</option>
+    <!-- OPTION: cada opcion de la lista select
+         value="20000": valor que le doy en mi JS. -->
+  </select>
+
+  <!-- CAMPO PARA ESCRIBIR LA CANTIDAD -->
+  <label for="cantidad" style="color:#4b3b2f; font-weight:bold;">Cantidad:</label>
+  <!-- LABEL: completo con la cant de prod -->
+
+  <input type="number" id="cantidad" min="1" value="1" required />
+  <!-- INPUT: campo para ingresar nro
+       type="number": solo nros
+       id="cantidad": id para JS
+       min="1": valor minimo q acepto
+       value="1": valor inicial
+       required: obligatorio -->
+
+  <!-- LISTA DE PROMOCIONES -->
+  <label for="promo" style="color:#4b3b2f; font-weight:bold;">Promoción:</label>
+  <!-- LABEL: listado de promos -->
+
+  <select id="promo" required>
+    <!-- SELECT: lista desplegable. -->
+    <option value="2x50">Llevá 2 productos y obtené 50% en el segundo</option>
+    <option value="3x2">3x2 en productos seleccionados</option>
+    <option value="10porciento">10% de descuento por compras superiores a $30.000</option>
+  </select>
+
+  <!-- BOTÓN PARA CALCULAR EL DESCUENTO -->
+  <button type="button" id="calcular">Calcular</button>
+  <!-- BUTTON: al hacer clic, ejecutará la cuenta escrita en JS
+       type="button": efecto de boton. No lo hace automatico
+       id="calcular": vinculo con mi JS. -->
+</form>
+
+<!-- SECCIÓN PARA MOSTRAR LOS RESULTADOS DEL CÁLCULO -->
+<section id="resultado" class="resultado">
+  <!-- SECTION: lo armo en bloque para que se ejecute todo junto
+   Todos los ID son para vincular en el JS-->
+  <h3 style="color:#4b3b2f;">Resultado:</h3>
+  <p id="sinDescuento">Total sin descuento: -</p>
+  <p id="descuento">Descuento aplicado: -</p>
+  <p id="totalFinal">Total final: -</p>
+  
+</section>
+
+</section>
+</main>
+<footer>
+  <p class="copy">© 2025 Frezia Amapola Indumentaria</p>
+</footer>
+
+<!-- VÍNCULO CON EL ARCHIVO JSS-->
+<script src="sale.js"></script>
+<!-- SCRIPT: conecta este HTML con el archivo JS (como el css)
+     donde están las funciones con los calculos -->
+
+</body>
+</html>
+
